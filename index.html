@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <title>Sueldo</title>
+
+    
+<style>
+    body {
+        font-family: Playfair Display, serif;
+        background-color: #f8f0fa;
+        text-align: center;
+    }
+
+    h1 {
+        color: #7b3f87;
+    }
+
+    table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 80%;
+        background-color: white;
+    }
+
+    th {
+        background-color: #a66bb5;
+        color: white;
+        padding: 12px;
+    }
+
+    td {
+        border: 1px solid #d8b8df;
+        padding: 10px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f0e0f5;
+    }
+
+    tr:hover {
+        background-color: #e3c8ed;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>Registro de sueldo</h1>
+<div id="resultado"></div>
+
+<script>
+    let bono = 1000;
+    let sueldo_base = 15000;
+
+    let nombre = prompt("Ingresa nombre");
+    let dias_trabajados = Number(prompt("Ingresa días trabajados"));
+    let antiguedad = Number(prompt("Ingresa años de antigüedad"));
+
+    let sueldo_quincenal = (sueldo_base / 15) * dias_trabajados;
+
+    let bono_aplicado = 0;
+
+    if (antiguedad >= 10) {
+        bono_aplicado = bono;
+    }
+
+    let total = sueldo_quincenal + bono_aplicado;
+
+    document.getElementById("resultado").innerHTML =
+    "<table border='1'>" +
+    "<tr><th>#</th><th>Nombre</th><th>Días</th><th>Antigüedad</th><th>Sueldo</th><th>Bono</th><th>Total</th></tr>" +
+
+    "<tr><td>1</td><td>" + nombre + "</td><td>" + dias_trabajados +
+    "</td><td>" + antiguedad + "</td><td>$" + sueldo_quincenal.toFixed(2) +
+    "</td><td>$" + bono_aplicado  + "</td><td>$" + total.toFixed(2) + "</td></tr>" +
+
+    "<tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>" +
+    "<tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>" +
+    "<tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>" +
+    "<tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>" +
+
+    "</table>";
+
+</script>
+
+</body>
+</html>
